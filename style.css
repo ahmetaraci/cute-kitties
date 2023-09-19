@@ -1,0 +1,68 @@
+#buttons {
+  height: 6vh;
+  width: 30vh;
+  /* border: 2px solid black;
+  background-color: aquamarine; */
+  margin-top: 5h;
+}
+
+#back-button {
+  float: left; /* Back button'ı sola yasala */
+}
+
+#next-button {
+  float: right; /* Next button'ı sağa yasala */
+}
+
+body {
+  display: flex;
+  flex-direction: column; /* Dikeyde alt alta sırala */
+  align-items: center; /* Yatayda merkezi hizalama */
+  justify-content: center; /* Dikeyde merkezi hizalama */
+  height: 100vh;
+}
+
+#photo-area {
+  /* border: 2px solid black; */
+  width: 70%;
+  height: 70%;
+  display: flex; /* Flex konteyneri olarak işaretle */
+  justify-content: center; /* Yatayda merkezi hizalama */
+  align-items: center; /* Dikeyde merkezi hizalama */
+}
+
+#photo-area img {
+  max-width: 100%; /*Resmi konteynerin içine sığacak şekilde ölçekle*/
+  max-height: 100%; /* Oranları koruyarak yüksekliği ayarla */
+  object-fit: contain;
+}
+
+#copy-link-area {
+  float: left; /* Back button'ı sola yasala */
+}
+
+#download-button {
+  float: right; /* Back button'ı sola yasala */
+}
+
+#bottom-bar {
+  width: 60vh;
+}
+
+#copy-link-area,
+#download-button {
+  display: inline-block; /* Elementleri yatayda yerleştir */
+  vertical-align: top; /* İçeriklerin en üstte hizalanmasını sağla */
+  height: 100%; /* Yükseklikleri eşitle */
+  box-sizing: border-box; /* Kenarlıkların ve dolgu (padding) dahil olmasını sağla */
+  padding: 0 10px; /* İçeriğin sol ve sağ kenarlarına boşluk ekleyebilirsiniz */
+  margin-top: 10px;
+}
+
+#copy-link-area {
+  text-align: center; /* Metni yatayda merkezle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
