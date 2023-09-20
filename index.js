@@ -1,6 +1,6 @@
 let back_button = document.getElementById("back-button");
 let next_button = document.getElementById("next-button");
-let download_button = document.getElementById("download-button");
+let copy_button = document.getElementById("copy-button");
 let copy_link_area = document.getElementById("copy-link-area");
 let photo_area = document.getElementById("photo-area");
 
@@ -21,7 +21,7 @@ back_button.addEventListener("click", function () {
     photo_area.innerHTML = html;
     copy_link_area.innerText = catList[counter].url;
   }
-
+  copied_to_copy();
   console.log(counter);
 });
 
@@ -30,6 +30,7 @@ next_button.addEventListener("click", function () {
     counter++;
     var html = `<img src="` + catList[counter].url + `" alt="Kedi Resmi">`;
     photo_area.innerHTML = html;
+    copy_link_area.innerText = catList[counter].url;
   } else if (catList.length - 1 >= counter) {
     ajax_get(
       "https://api.thecatapi.com/v1/images/search?size=full",
@@ -46,6 +47,7 @@ next_button.addEventListener("click", function () {
       }
     );
   }
+  copied_to_copy();
 });
 
 function ajax_get(url, callback) {
@@ -70,7 +72,8 @@ function ajax_get(url, callback) {
 ajax_get(
   "https://api.thecatapi.com/v1/images/search?size=full",
   function (data) {
-    var html = `<img src="` + data[0]["url"] + `" alt="Kedi Resmi">`;
+    var html =
+      `<img id="myphoto" src="` + data[0]["url"] + `" alt="Kedi Resmi">`;
     photo_area.innerHTML = html;
     copy_link_area.innerText = data[0]["url"];
     let cat = new Cat(counter, data[0]["id"], data[0]["url"]);
@@ -79,35 +82,28 @@ ajax_get(
   }
 );
 
-download_button.addEventListener("click", function () {
-  let download_url = copy_link_area.innerText;
-  let anchor = document.createElement("a");
-  anchor.href = download_url;
-  let url_parts = download_url.split("/");
-  let file_name = url_parts[url_parts - 1];
-  anchor.download = file_name;
-  anchor.style.display = "none";
-  document.body.appendChild(anchor);
-  anchor.click();
-  document.body.removeChild(anchor);
-});
+// Kopyalama işlemini gerçekleştirme işlevini tanımlayın
+function copyText() {
+  navigator.clipboard
+    .writeText(copy_link_area.innerText)
+    .then(function () {
+      copy_to_copied();
+    })
+    .catch(function (error) {
+      console.error("Kopyalama işlemi başarısız oldu: ", error);
+    });
+}
 
-// download_button.addEventListener("click", function () {
-//   let download_url = copy_link_area.innerText;
-//   fetch(download_url)
-//     .then((response) => response.blob())
-//     .then((blob) => {
-//       var download_url = window.URL.createObjectURL(blob);
-//       var a = document.createElement("a");
-//       a.style.display = "none";
-//       a.href = download_url;
+copy_button.addEventListener("click", copyText);
 
-//       let url_parts = download_url.split("/");
-//       let file_name = url_parts[url_parts - 1];
+function copy_to_copied() {
+  document.getElementById("copy-button").classList.remove("btn-info");
+  document.getElementById("copy-button").classList.add("btn-success");
+  document.getElementById("copy-button").innerText = "Copied";
+}
 
-//       a.download = file_name;
-//       document.body.appendChild(a);
-//       a.click();
-//       window.URL.revokeObjectURL(url);
-//     });
-// });
+function copied_to_copy() {
+  document.getElementById("copy-button").classList.remove("btn-success");
+  document.getElementById("copy-button").classList.add("btn-info");
+  document.getElementById("copy-button").innerText = "Copy";
+}

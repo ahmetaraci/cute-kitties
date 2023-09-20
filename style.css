@@ -22,6 +22,14 @@ body {
   height: 100vh;
 }
 
+img {
+  border: 2px solid black;
+}
+
+body.background {
+  background: url("./assests/cat_bg.png");
+}
+
 #photo-area {
   /* border: 2px solid black; */
   width: 70%;
@@ -41,7 +49,7 @@ body {
   float: left; /* Back button'ı sola yasala */
 }
 
-#download-button {
+#copy-button {
   float: right; /* Back button'ı sola yasala */
 }
 
@@ -50,7 +58,7 @@ body {
 }
 
 #copy-link-area,
-#download-button {
+#copy-button {
   display: inline-block; /* Elementleri yatayda yerleştir */
   vertical-align: top; /* İçeriklerin en üstte hizalanmasını sağla */
   height: 100%; /* Yükseklikleri eşitle */
