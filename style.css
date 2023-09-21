@@ -1,24 +1,22 @@
 #buttons {
   height: 6vh;
   width: 30vh;
-  /* border: 2px solid black;
-  background-color: aquamarine; */
   margin-top: 5h;
 }
 
 #back-button {
-  float: left; /* Back button'ı sola yasala */
+  float: left; /*Left justify back button. (Back button'ı sola yasla.) */
 }
 
 #next-button {
-  float: right; /* Next button'ı sağa yasala */
+  float: right; /*Right justify Next button. (Next button'ı sağa yasla.) */
 }
 
 body {
   display: flex;
-  flex-direction: column; /* Dikeyde alt alta sırala */
-  align-items: center; /* Yatayda merkezi hizalama */
-  justify-content: center; /* Dikeyde merkezi hizalama */
+  flex-direction: column; /* Lines vertically one under the other. (Dikeyde alt alta sıralar.) */
+  align-items: center; /* Aligns the centre horizontally. (Yatayda merkezi hizalar.) */
+  justify-content: center; /* Aligns the centre vertically. (Dikeyde merkezi hizalar.) */
   height: 100vh;
 }
 
@@ -31,26 +29,25 @@ body.background {
 }
 
 #photo-area {
-  /* border: 2px solid black; */
   width: 70%;
   height: 70%;
-  display: flex; /* Flex konteyneri olarak işaretle */
-  justify-content: center; /* Yatayda merkezi hizalama */
-  align-items: center; /* Dikeyde merkezi hizalama */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #photo-area img {
-  max-width: 100%; /*Resmi konteynerin içine sığacak şekilde ölçekle*/
-  max-height: 100%; /* Oranları koruyarak yüksekliği ayarla */
+  max-width: 100%; /* Scales the picture to fit inside the container. (Resmi konteynerin içine sığacak şekilde ölçekler.)*/
+  max-height: 100%; /* Adjusts the height while maintaining proportions. (Oranları koruyarak yüksekliği ayarlar.) */
   object-fit: contain;
 }
 
 #copy-link-area {
-  float: left; /* Back button'ı sola yasala */
+  float: left; /*Left justify the back button. (Back button'ı sola yasla.) */
 }
 
 #copy-button {
-  float: right; /* Back button'ı sola yasala */
+  float: right; /* Right justfiy the copy button. (Copy button'ı sağa yasla.) */
 }
 
 #bottom-bar {
@@ -59,16 +56,16 @@ body.background {
 
 #copy-link-area,
 #copy-button {
-  display: inline-block; /* Elementleri yatayda yerleştir */
-  vertical-align: top; /* İçeriklerin en üstte hizalanmasını sağla */
-  height: 100%; /* Yükseklikleri eşitle */
-  box-sizing: border-box; /* Kenarlıkların ve dolgu (padding) dahil olmasını sağla */
-  padding: 0 10px; /* İçeriğin sol ve sağ kenarlarına boşluk ekleyebilirsiniz */
+  display: inline-block; /* It places the elements horizontally.  (Elementleri yatayda yerleştirir). */
+  vertical-align: top; /*Aligns content at the top. (İçeriklerin en üstte hizalanmasını sağlar.) */
+  height: 100%;
+  box-sizing: border-box; /* Allows borders and padding to be included. (Kenarlıkların ve dolgu (padding) dahil olmasını sağlar.) */
+  padding: 0 10px; /* You can add space on the left and right edges of the content. (İçeriğin sol ve sağ kenarlarına boşluk ekleyebilirsiniz.) */
   margin-top: 10px;
 }
 
 #copy-link-area {
-  text-align: center; /* Metni yatayda merkezle */
+  text-align: center; /*Aligns the text horizontally to the center. (Metni yatayda merkeze hizalar.) */
   display: flex;
   justify-content: center;
   align-items: center;
