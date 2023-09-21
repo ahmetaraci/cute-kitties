@@ -71,3 +71,21 @@ body.background {
   align-items: center;
   height: 100%;
 }
+
+/* Ekran genişliği 768 piksel veya daha küçükse (mobil cihazlar için) stil değişiklikleri yapın */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* Örneğin, metin boyutunu küçültün */
+  }
+  
+  #buttons {
+    width: 90%; /* Düğmelerin genişliğini büyütün */
+  }
+  
+  /* Diğer stil değişikliklerini burada ekleyebilirsiniz */
+}
+
+/* Ekran genişliği 992 piksel veya daha küçükse (tabletler için) stil değişiklikleri yapın */
+@media (max-width: 992px) {
+  /* Stil değişiklikleri burada tanımlanabilir */
+}
